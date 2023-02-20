@@ -1,0 +1,59 @@
+server:
+  port: 8888
+spring:
+#  servlet:
+#    multipart:
+#      enabled:  true
+#      file-size-threshold:  ""
+#      #location: D:\\workspace
+#      max-file-size:  1MB
+#      max-request-size: 10MB
+#      resolve-lazily: false
+  mvc:
+    throw-exception-if-no-handler-found: true
+  datasource:
+    url: jdbc:mysql://140.210.193.227:3306/server?useUnicode=true&characterEncoding=utf-8&useSSL=true
+    username: root
+    password: 123456
+    maxActive: 10
+    maxIdle: 10
+    minIdle: 2
+  redis:
+    database: 0
+    host: 140.210.193.227
+    #Redis???????
+    port: 6379
+    #Redis?????????????
+    password: 123456
+    timeout: 60s
+    #????????????????????
+    pool:
+      max-active: 8
+      #???????????????????????
+      max-wait: -1
+      #???????????
+      max-idle: 8
+      #???????????
+      min-idle: 0
+      #??????????
+      timeout: 30000
+jackson:
+  date-format: yyyy-MM-dd HH:mm:ss
+  time-zone: GMT+8
+
+jwt:
+  header: "Authorization"     # token ????
+  tokenPrefix: "Bearer "      # token ??
+  secret: "qwertyuiop1214156" # ??
+  expireTime: 10080           # token ???????????
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true #开启驼峰命名转换
+logging:
+  config:  classpath:./logback-spring.xml
+uploadphoto:  F:\Java-work_space\Infernal\src\main\resources\static
+uploadfile:  F:\Java-work_space\Infernal\src\main\resources\file
+#    com:
+#      nextleaf:
+#        course01:
+#          dao:  trace
